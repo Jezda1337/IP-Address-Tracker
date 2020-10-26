@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./leafletjs/leaflet.css">
+  <title>Frontend Mentor | IP Address Tracker</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="head">
+      <h1>IP Address Tracker</h1>
+      <label for="search">
+        <input type="text" placeholder="Search for any IP address" id="search"><button id="btn" type="submit">
+          <img src="./images/icon-arrow.svg" alt="">
+        </button>
+      </label>
+    </div>
+
+    <section class="info">
+      <div>
+        <p>IP ADDRESS</p>
+        <h3 id="ip"></h3>
+      </div>
+      <div>
+        <p>LOCATION</p>
+        <h3 id="location"></h3>
+      </div>
+      <div>
+        <p>TIME ZONE</p>
+        <h3 id="timeZone"></h3>
+      </div>
+      <div>
+        <p>ISP</p>
+        <h3 id="isp"></h3>
+      </div>
+    </section>
+  </header>
+  <main id="main">
+    <section id="map"></section>
+  </main>
+
+  <script src="./leafletjs/leaflet.js"></script>
+  <script src="./app.js"></script>
+  <script>
+    let map = L.map('map', {
+      center: [51.505, -0.09],
+      zoom: 13
+    });
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+  </script>
+</body>
+
+</html>
